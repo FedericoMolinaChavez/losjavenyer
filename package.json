@@ -1,0 +1,24 @@
+{
+  "name": "prs",
+  "version": "1.0.0",
+  "description": "este es un servicio dirigido para solucionar problemas de comunicación veraz de información en nuestro país",
+  "main": "index.js",
+  "scripts": {
+    "start" : "node index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "país",
+    "información",
+    "realidad",
+    "respuestas"
+  ],
+  "author": "Federico Molina Chávez",
+  "license": "ISC",
+  "dependencies": {
+    "add": "^2.0.6",
+    "dotenv": "^8.2.0",
+    "node-wit": "^5.0.0",
+    "yarn": "^1.22.4"
+  }
+}
