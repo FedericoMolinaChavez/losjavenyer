@@ -1,10 +1,10 @@
 const passport = require('passport'),  Facebookstrategy = require('passport-facebook').Strategy
-JwtStrategy = require('passport-jwt').Strategy,
+const JwtStrategy = require('passport-jwt').Strategy,
 ExtractJwt = require('passport-jwt').ExtractJwt;
 require('dotenv').config();
 passport.use(new Facebookstrategy({
-    clientID: '574859906721735',
-    clientSecret: '87ba1c499a0178068f4aa80c8f3854f9',
+    clientID: process.env.CLIENT_FACEBOOK,
+    clientSecret: process.env.CLIENT_FACEBOOK_SECRET,
     callbackURL: "http://localhost:8080/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'name', 'email', 'gender']
 
@@ -19,7 +19,7 @@ passport.use(new JwtStrategy({
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey   : process.env.JWT_SECRET
 },
-function (jwtPayload, done) {
+/*function (jwtPayload, done) {
     //console.log(jwtPayload)
     const query = `query UserFind($emailx : String){
         UserFind (Email : $emailx)
@@ -44,7 +44,8 @@ function (jwtPayload, done) {
     })
 
 
-}
+}*/function(jwtPayload, done){
+return done(null, false);}
 ));
 
 module.exports = passport;
